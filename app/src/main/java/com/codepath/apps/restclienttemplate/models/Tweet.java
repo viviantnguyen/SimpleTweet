@@ -4,14 +4,17 @@ import android.icu.text.RelativeDateTimeFormatter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Parcel
 public class Tweet {
     public String body;
     public String timestamp;
     public User user;
+
+    public Tweet(){} //empty constructor rq'd by Parceler model
 
     public static String getFormattedTimeStamp(JSONObject jsonObject) throws JSONException {
         return TimeFormatter.getTimeDifference(jsonObject.getString("created_at"));
